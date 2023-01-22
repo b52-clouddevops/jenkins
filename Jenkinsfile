@@ -14,9 +14,9 @@ pipeline {
         }
 
         stage('Two') {
-    environment {                                       // Declaring at pipeline will allow all the stages to access this variable
-        ENV_URL = "pipeline.global.com"
-    }
+            environment {                                       // Declaring at pipeline will allow all the stages to access this variable
+                ENV_URL = "pipeline.global.com"
+            }
             steps {
                 echo "I am Stage Two Step"
             }
