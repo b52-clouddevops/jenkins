@@ -9,6 +9,7 @@ pipeline {
         stage('One') {
             steps {
                 echo "I am Stage One Step"
+                echo "ENv_URL is $ENV_URL"
             }
         }
 
