@@ -2,7 +2,7 @@ pipeline {
     agent any 
     
     environment {                                       // Declaring at pipeline will allow all the stages to access this variable
-        ENV_URL
+        ENV_URL = "pipeline.glo"
     }
 
     stages {
