@@ -16,9 +16,9 @@ pipeline {
 
         stage('Three') {
             steps {
-sh '''echo Hello World
-echo Hai World
-echo I am using Pipeline Syntax Generator'''
+                sh '''echo Hello World
+                echo Hai World
+                echo I am using Pipeline Syntax Generator'''
             }
         }
 
