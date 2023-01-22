@@ -8,7 +8,7 @@ pipeline {
             }
         }
 
-        stage('One') {
+        stage('Two') {
             steps {
                 
             }
