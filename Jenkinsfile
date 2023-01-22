@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('One') {
             steps {
-
+                echo "I am State One Step"
             }
         }
 
