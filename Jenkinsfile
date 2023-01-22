@@ -1,8 +1,8 @@
 pipeline {
     agent any 
     
-    environment {
-        
+    environment {                                       // Pipelines 
+
     }
 
     stages {
