@@ -14,7 +14,7 @@ pipeline {
         }
 
         stage('Two') {
-            environment {                                       // Declaring at state will allow all the stages to access this variable
+            environment {                                       // Declaring at state will allow only that stages to access this variable
                 ENV_URL = "pipeline.global.com"
             }
             steps {
