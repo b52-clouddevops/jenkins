@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     
-    environment {                                       // Pipelines 
+    environment {                                       // Declaring at pipeline will allow all the stages to access this variable
 
     }
 
