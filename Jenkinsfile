@@ -4,6 +4,18 @@ pipeline {
     stages {
         stage('One') {
             steps {
+
+            }
+        }
+
+        stage('One') {
+            steps {
+                
+            }
+        }
+
+        stage('One') {
+            steps {
                 
             }
         }
