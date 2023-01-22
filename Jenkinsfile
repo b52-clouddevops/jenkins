@@ -18,7 +18,6 @@ pipeline {
             steps {
                 echo "I am Stage One Step"
                 echo "ENV_URL is ${ENV_URL}"
-                sleep 300
             }
         }
 
