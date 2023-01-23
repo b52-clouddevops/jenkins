@@ -33,7 +33,7 @@ pipeline {
         stage('One') {
             when { 
                 branch 'master'
-                 }
+             }
             steps {
                 echo "I am Stage One Step"
                 echo "ENV_URL is ${ENV_URL}"
