@@ -32,7 +32,7 @@ pipeline {
     stages {
         stage('One') {
             when { 
-                branch 'develop'                              // This job will only run if the branch is develop.
+                branch 'develop'                               // This job will only run if the branch is develop.
              }
             steps {
                 echo "I am Stage One Step"
