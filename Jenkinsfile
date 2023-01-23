@@ -64,7 +64,7 @@ pipeline {
                             echo Hello World
                             echo Hai World
                             echo I am using Pipeline Syntax Generator
-                            sh "sleep 300"
+                            sleep 300"
                             env
                         '''
                     }
