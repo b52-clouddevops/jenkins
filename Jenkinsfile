@@ -14,7 +14,8 @@ pipeline {
     }
 
      triggers { 
-        cron('H */4 * * 1-5') }
+        cron('H */4 * * 1-5') 
+    }
 
     parameters {
         string(name: 'PERSON', defaultValue: 'Jenkins', description: 'Who should I say hello to?')
