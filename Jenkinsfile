@@ -1,5 +1,5 @@
 pipeline {
-    agent any 
+    agent java-node 
     
     environment {                                       // Declaring at pipeline will allow all the stages to access this variable
         ENV_URL  = "pipeline.global.com"
