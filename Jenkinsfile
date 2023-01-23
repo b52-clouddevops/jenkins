@@ -32,7 +32,7 @@ pipeline {
     stages {
         stage('One') {
             when { 
-                environment name: 'CHOICE', value: 'Three'  
+                environment name: 'CHOICE', value: 'One'  
              }
             steps {
                 echo "I am Stage One Step"
