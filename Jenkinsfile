@@ -13,6 +13,8 @@ pipeline {
         timeout(time: 1, unit: 'MINUTES')
     }
 
+     triggers { cron('H */4 * * 1-5') }
+
     parameters {
         string(name: 'PERSON', defaultValue: 'Jenkins', description: 'Who should I say hello to?')
         text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
