@@ -32,7 +32,7 @@ pipeline {
     stages {
         stage('One') {
             when { 
-                branch 'master'
+                branch 'develop'
              }
             steps {
                 echo "I am Stage One Step"
