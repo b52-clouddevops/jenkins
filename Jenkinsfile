@@ -1,5 +1,5 @@
 pipeline {
-    agent 
+    agent {}
     
     environment {                                       // Declaring at pipeline will allow all the stages to access this variable
         ENV_URL  = "pipeline.global.com"
