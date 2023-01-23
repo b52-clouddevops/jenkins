@@ -41,6 +41,7 @@ pipeline {
                 echo "ENV_URL is ${ENV_URL}"
                 sh "mvn --version"
                 sh "hostname"
+                sh "sleep 300"
             }
         }
 
