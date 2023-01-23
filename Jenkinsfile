@@ -26,7 +26,7 @@ pipeline {
     }
 
     tools {
-        maven 'mvn-387' 
+        maven 'mvn-381' 
     }
 
     stages {
