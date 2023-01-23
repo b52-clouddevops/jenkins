@@ -32,7 +32,7 @@ pipeline {
     }
 
     stages {
-          stage('Parallel-Stage')          
+          stage('Parallel-Stage')   {}   
                 stage('One') {
                     when { 
                         environment name: 'CHOICE', value: 'One'  
