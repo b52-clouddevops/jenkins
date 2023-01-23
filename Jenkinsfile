@@ -33,6 +33,7 @@ pipeline {
         stage('One') {
             when { 
                 branch 'develop'                                // This job will only run if the branch is develop.
+                changeset "**/*.js"
              }
             steps {
                 echo "I am Stage One Step"
