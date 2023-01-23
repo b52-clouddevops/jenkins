@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-        label
+        label 'ANSIBLE'
     }
     
     environment {                                       // Declaring at pipeline will allow all the stages to access this variable
