@@ -32,8 +32,7 @@ pipeline {
     stages {
         stage('One') {
             when { 
-                branch 'develop'                                // This job will only run if the branch is develop.
-                changeset "**/*.js"
+environment name: 'DEPLOY_TO', value: 'production'
              }
             steps {
                 echo "I am Stage One Step"
