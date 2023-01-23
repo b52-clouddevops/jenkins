@@ -32,7 +32,7 @@ pipeline {
     }
 
     stages {
-                    
+          stage('')          
                 stage('One') {
                     when { 
                         environment name: 'CHOICE', value: 'One'  
