@@ -14,7 +14,7 @@ pipeline {
                    steps {
                        dir('USER') {  git branch: 'main', url: 'https://github.com/b52-clouddevops/user.git'
                           sh '''
-                            cd tf-mutable
+                            cd mutable-infra
                             terrafile -f env-${ENV}/Terrafile
                             terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                             terraform destroy -var-file=env-${ENV}/${ENV}.tfvars  -var APP_VERSION=0.0.2 -auto-approve
@@ -26,7 +26,7 @@ pipeline {
                    steps {
                        dir('Catalogue') {  git branch: 'main', url: 'https://github.com/b52-clouddevops/catalogue.git'
                           sh '''
-                            cd tf-mutable
+                            cd mutable-infra
                             terrafile -f env-${ENV}/Terrafile
                             terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                             terraform destroy -var-file=env-${ENV}/${ENV}.tfvars  -var APP_VERSION=0.0.3 -auto-approve
@@ -38,7 +38,7 @@ pipeline {
                 steps {
                     dir('PAYMENT') {  git branch: 'main', url: 'https://github.com/b52-clouddevops/payment.git'
                           sh '''
-                            cd tf-mutable
+                            cd mutable-infra
                             terrafile -f env-${ENV}/Terrafile
                             terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                             terraform destroy -var-file=env-${ENV}/${ENV}.tfvars  -var APP_VERSION=0.0.2 -auto-approve
@@ -50,7 +50,7 @@ pipeline {
                 steps {
                     dir('CART') {  git branch: 'main', url: 'https://github.com/b52-clouddevops/cart.git'
                           sh '''
-                            cd tf-mutable
+                            cd mutable-infra
                             terrafile -f env-${ENV}/Terrafile
                             terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                             terraform destroy -var-file=env-${ENV}/${ENV}.tfvars  -var APP_VERSION=0.0.2 -auto-approve
@@ -62,7 +62,7 @@ pipeline {
                 steps {
                     dir('SHIPPING') {  git branch: 'main', url: 'https://github.com/b52-clouddevops/shipping.git'
                           sh '''
-                            cd tf-mutable
+                            cd mutable-infra
                             terrafile -f env-${ENV}/Terrafile
                             terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                             terraform destroy -var-file=env-${ENV}/${ENV}.tfvars  -var APP_VERSION=0.0.1  -auto-approve
@@ -76,7 +76,7 @@ pipeline {
                 steps {
                     dir('FRONTEND') {  git branch: 'main', url: 'https://github.com/b52-clouddevops/frontend.git'
                           sh '''
-                            cd tf-mutable
+                            cd mutable-infra
                             terrafile -f env-${ENV}/Terrafile
                             terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                             terraform destroy -var-file=env-${ENV}/${ENV}.tfvars  -var APP_VERSION=0.0.3 -auto-approve
