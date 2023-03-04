@@ -17,23 +17,27 @@ pipeline {
             }
         }
 
-        stage('Terraform Create Databases') {
-            steps {
-                git branch: 'main', url: 'https://github.com/b52-clouddevops/terraform-databases.git'
-                sh "terrafile -f env-${ENV}/Terrafile"
-                sh "terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure"
-                sh "terraform plan -var-file=env-${ENV}/${ENV}.tfvars"
-                sh "terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve"
-            }
-        }
-        
-        stage('Terraform Create ALB') {
-            steps {
-                git branch: 'main', url: 'https://github.com/b52-clouddevops/terraform-loadbalancers.git'
-                sh "terrafile -f env-${ENV}/Terrafile"
-                sh "terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure"
-                sh "terraform plan -var-file=env-${ENV}/${ENV}.tfvars"
-                sh "terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve"
+    stage('DB-ALB') {
+            parallel {
+                stage('Terraform Create Databases') {
+                    steps {
+                        git branch: 'main', url: 'https://github.com/b52-clouddevops/terraform-databases.git'
+                        sh "terrafile -f env-${ENV}/Terrafile"
+                        sh "terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure"
+                        sh "terraform plan -var-file=env-${ENV}/${ENV}.tfvars"
+                        sh "terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve"
+                    }
+                }
+                
+                stage('Terraform Create ALB') {
+                    steps {
+                        git branch: 'main', url: 'https://github.com/b52-clouddevops/terraform-loadbalancers.git'
+                        sh "terrafile -f env-${ENV}/Terrafile"
+                        sh "terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure"
+                        sh "terraform plan -var-file=env-${ENV}/${ENV}.tfvars"
+                        sh "terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve"
+                    }
+                }
             }
         }
          stage('Backend') {
@@ -58,8 +62,8 @@ pipeline {
                             cd mutable-infra
                             terrafile -f env-${ENV}/Terrafile
                             terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
-                            terraform plan -var-file=env-${ENV}/${ENV}.tfvars  -var APP_VERSION=0.0.9
-                            terraform apply -var-file=env-${ENV}/${ENV}.tfvars  -var APP_VERSION=0.0.9 -auto-approve
+                            terraform plan -var-file=env-${ENV}/${ENV}.tfvars  -var APP_VERSION=0.1.0
+                            terraform apply -var-file=env-${ENV}/${ENV}.tfvars  -var APP_VERSION=0.1.0 -auto-approve
                           '''
                             }
                         }
