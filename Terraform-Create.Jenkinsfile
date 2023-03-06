@@ -17,10 +17,9 @@ pipeline {
             }
         }
 
-    stage('DB-ALB') {
-            parallel {
-                stage('Terraform Create Databases') {
-                    steps {
+
+        stage('Terraform Create Databases') {
+            steps {
                         git branch: 'main', url: 'https://github.com/b52-clouddevops/terraform-databases.git'
                         sh "terrafile -f env-${ENV}/Terrafile"
                         sh "terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure"
@@ -29,8 +28,8 @@ pipeline {
                     }
                 }
                 
-                stage('Terraform Create ALB') {
-                    steps {
+        stage('Terraform Create ALB') {
+            steps {
                         git branch: 'main', url: 'https://github.com/b52-clouddevops/terraform-loadbalancers.git'
                         sh "terrafile -f env-${ENV}/Terrafile"
                         sh "terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure"
@@ -38,8 +37,6 @@ pipeline {
                         sh "terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve"
                     }
                 }
-            }
-        }
          stage('Backend') {
             parallel {
                stage('Creating-User') {
